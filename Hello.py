@@ -34,6 +34,3 @@ if num1 != num2 or num1 != num3:
 else:
     st.write("Please enter three different numbers.")
 
-
-if __name__ == "__main__":
-    run()
