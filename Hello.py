@@ -13,38 +13,26 @@
 # limitations under the License.
 
 import streamlit as st
-from streamlit.logger import get_logger
 
-LOGGER = get_logger(__name__)
+def find_largest(num1, num2, num3):
+    largest = max(num1, num2, num3)
+    return largest
 
+# Streamlit app title
+st.title("Find the Largest Number")
 
-def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
-    )
+# Input fields for three numbers
+num1 = st.number_input("Enter the first number:")
+num2 = st.number_input("Enter the second number:")
+num3 = st.number_input("Enter the third number:")
 
-    st.write("# Welcome to Streamlit! 👋")
-
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
+# Check if the numbers are valid
+if num1 != num2 or num1 != num3:
+    # Find and display the largest number
+    largest = find_largest(num1, num2, num3)
+    st.write(f"The largest number is: {largest}")
+else:
+    st.write("Please enter three different numbers.")
 
 
 if __name__ == "__main__":
